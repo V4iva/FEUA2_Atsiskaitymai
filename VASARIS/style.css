@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.border{
+    border: 1px solid darkgrey;
+}
+.d-flex{
+    display: flex;
+}
+.gap{
+    gap: 10px;
+}
+.j-center{
+    justify-content: center;
+}
+.j-spc-btw{
+    justify-content: space-between;
+}
+.j-spc-around{
+    justify-content: space-around;
+}
+.j-spc-evenly{
+    justify-content: space-evenly;
+}
+.a-center{
+    align-items: center;
+}
+
+.p10{
+    padding: 30px;
+}
+.txt-center{
+    text-align: center;
+}
+.flex-d-column{
+    flex-direction: column;
+}
+.flex-d-row{
+    flex-direction: row;
+}
+.f-wrap{
+    flex-wrap: wrap;
+}
+.box{
+    width: 700px;
+    height:350px;
+}
+
+/*** Flex (Grow) vietos paskirstymas ***/
+
+.f-1{
+    flex: 1;
+}
+.f-2{
+    flex: 2;
+}
+.f-3{
+    flex: 3;
+}
+.f-4{
+    flex: 4;
+}
+.f-5{
+    flex: 5;
+}
+.f-6{
+    flex: 6;
+}
+.male{
+    background-color: #1e9bff;
+}
+.female{
+    background-color: lightpink;
+}
+.invalid{
+    border: 2px solid red;
+}
+.ov-hidden{
+    overflow: hidden;
+}
+/*************************************/
+
+input{
+    height: 50px;
+    font-size: 20px;
+}
+button{
+    height: 50px;
+}
+img{
+    width: 30%;
+}
+.box2{
+    height: 100%;
+    width: 300px;
+}
+.box2 img{
+    width: 100%;
+}
