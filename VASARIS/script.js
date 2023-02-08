@@ -4,6 +4,14 @@ const btn = document.querySelectorAll('button')
 
 let ingredients = []
 let toRecipes = []
+let createRecipe = {
+    id: '',
+    image: '',
+    title: '',
+    ingredient: '',
+    description: '',
+    calories: '',
+}
 
 btn[0].onclick = () => {
     fetch('https://www.themealdb.com/api/json/v1/1/random.php')
@@ -63,9 +71,12 @@ function recipePreview (data){
             description: input[2].value,
             calories: input[3].value,
         }
+
         if (recipe.title.length !== 0 && recipe.ingredient.length !== 0 && recipe.description.length !== 0 && recipe.calories.length !== 0){
-            toRecipes.push(recipe)
-            localStorage.setItem('recipes',JSON.stringify(toRecipes))
+           addToLocal(recipe)
+
+            // toRecipes.push(recipe)
+            // localStorage.setItem('recipes',JSON.stringify(toRecipes))
             resetInputs()
         } else {
             input[0].style.border = '2px solid red'
@@ -74,6 +85,24 @@ function recipePreview (data){
             input[3].style.border = '2px solid red'
         }
 
+    }
+}
+function addToLocal (recipe){
+    let addRecipe = localStorage.getItem('recipes')
+
+    if (addRecipe) {
+        addRecipe = JSON.parse(addRecipe)
+        const existInRecipe = addRecipe.find(rec => rec.id === recipe.id)
+
+        if (existInRecipe) {
+            // const recipeIndex = addRecipe.findIndex(rec => rec.id === recipe.id)
+            localStorage.setItem('recipes', JSON.stringify(addRecipe))
+        } else {
+            addRecipe.push(recipe)
+            localStorage.setItem('recipes', JSON.stringify(addRecipe))
+        }
+    }else {
+        localStorage.setItem('recipes', JSON.stringify([addRecipe]))
     }
 }
 function resetInputs () {
