@@ -10,7 +10,6 @@ function getFromStorage () {
 }
 getFromStorage()
 function recipesAll (data){
-    console.log(allRecipes)
     data.map(item =>{
         main.innerHTML += `
         <div id="${item.id}" class="box2 border d-flex flex-d-column gap">
@@ -24,21 +23,25 @@ function recipesAll (data){
             </div>
         </div>
         `
+        filter(item)
     })
 }
-function filter (){
-btn.onclick = (item) =>{
-        console.log(item)
-        if (input[0].value === item.title || input[1].value === item.calories || input[2].value === item.ingredient){
-            allRecipes.filter(rec => rec.title === input[0].value)
+function filter (item){
+    btn.onclick = (item) => {
+        const values = {
+            title: input[0].value,
+            calories: input[2].value,
+            ingredient: input[1].value
         }
-        if (input[1].value === item.calories){
-            allRecipes.find(rec => rec.calories === input[1].value)
-        }
-        if (input[2].value === item.ingredient){
-            allRecipes.find(rec => rec.ingredient === input[2].value)
-        }
-    }
 
+        let result = allRecipes
+
+        if (values.title) result = allRecipes.filter(recipe => recipe.title === values.title)
+        if (values.calories) result = allRecipes.filter(recipe => recipe.calories === values.calories)
+        if (values.ingredient) result = allRecipes.filter(recipe => recipe.ingredient === values.ingredient)
+
+        main.innerHTML = ''
+        recipesAll(result)
+    }
 }
 
