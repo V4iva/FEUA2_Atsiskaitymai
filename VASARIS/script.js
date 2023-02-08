@@ -3,15 +3,6 @@ const input = document.querySelectorAll('input')
 const btn = document.querySelectorAll('button')
 
 let ingredients = []
-let toRecipes = []
-let createRecipe = {
-    id: '',
-    image: '',
-    title: '',
-    ingredient: '',
-    description: '',
-    calories: '',
-}
 
 btn[0].onclick = () => {
     fetch('https://www.themealdb.com/api/json/v1/1/random.php')
@@ -74,9 +65,6 @@ function recipePreview (data){
 
         if (recipe.title.length !== 0 && recipe.ingredient.length !== 0 && recipe.description.length !== 0 && recipe.calories.length !== 0){
            addToLocal(recipe)
-
-            // toRecipes.push(recipe)
-            // localStorage.setItem('recipes',JSON.stringify(toRecipes))
             resetInputs()
         } else {
             input[0].style.border = '2px solid red'
