@@ -11,7 +11,7 @@ getFromStorage()
 function recipesAll (data){
     data.map(item =>{
         main.innerHTML += `
-        <div id="${item.id}" class="box2 border d-flex flex-d-column gap">
+        <div id="${item.id}" class="box2 border d-flex flex-d-column gap ov-hidden">
             <img src="${item.image}" alt="">
             <div>
                 <h1>Title: ${item.title}</h1>
@@ -32,16 +32,15 @@ function filter (item){
             calories: input[2].value,
             ingredient: input[1].value
         }
-
         let result = allRecipes
 
         if (values.title) result = allRecipes.filter(recipe => recipe.title === values.title)
         if (values.calories) result = allRecipes.filter(recipe => recipe.calories === values.calories)
-        if (values.ingredient) result = allRecipes.filter(recipe => recipe.ingredient === values.ingredient)
+        // if (values.ingredient) result = allRecipes.ingredient.filter(recipe => recipe.ingredient.includes(values.ingredient))
+        if (values.ingredient) result = result.filter(recipe => recipe.ingredient.includes(values.ingredient))
 
         main.innerHTML = ''
         recipesAll(result)
-
     }
     btn[1].onclick = (data) =>{
         main.innerHTML = ''

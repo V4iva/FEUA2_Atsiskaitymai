@@ -18,16 +18,9 @@
 .j-spc-btw{
     justify-content: space-between;
 }
-.j-spc-around{
-    justify-content: space-around;
-}
-.j-spc-evenly{
-    justify-content: space-evenly;
-}
 .a-center{
     align-items: center;
 }
-
 .p10{
     padding: 30px;
 }
@@ -36,9 +29,6 @@
 }
 .flex-d-column{
     flex-direction: column;
-}
-.flex-d-row{
-    flex-direction: row;
 }
 .f-wrap{
     flex-wrap: wrap;
@@ -68,15 +58,6 @@
 .f-6{
     flex: 6;
 }
-.male{
-    background-color: #1e9bff;
-}
-.female{
-    background-color: lightpink;
-}
-.invalid{
-    border: 2px solid red;
-}
 .ov-hidden{
     overflow: hidden;
 }
@@ -98,4 +79,10 @@ img{
 }
 .box2 img{
     width: 100%;
+}
+a{
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: bolder;
+    color: grey;
 }

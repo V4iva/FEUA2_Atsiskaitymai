@@ -52,7 +52,6 @@ function recipePreview (data){
         document.querySelector('.calories').innerHTML = `Calories: ${input[3].value}`
     }
 
-
     button.onclick = () => {
         const recipe = {
             id: data.meals[0].idMeal,
@@ -64,7 +63,7 @@ function recipePreview (data){
         }
 
         if (recipe.title.length !== 0 && recipe.ingredient.length !== 0 && recipe.description.length !== 0 && recipe.calories.length !== 0){
-           addToLocal(recipe)
+            addToLocal(recipe)
             resetInputs()
         } else {
             input[0].style.border = '2px solid red'
@@ -72,24 +71,16 @@ function recipePreview (data){
             input[2].style.border = '2px solid red'
             input[3].style.border = '2px solid red'
         }
-
     }
 }
 function addToLocal (recipe){
-    let addRecipe = localStorage.getItem('recipes')
+    let addRecipe = JSON.parse(localStorage.getItem('recipes'))
 
-    if (addRecipe) {
-        addRecipe = JSON.parse(addRecipe)
-        const existInRecipe = addRecipe.find(rec => rec.id === recipe.id)
-
-        if (existInRecipe) {
-            // const recipeIndex = addRecipe.findIndex(rec => rec.id === recipe.id)
-            localStorage.setItem('recipes', JSON.stringify(addRecipe))
-        } else {
-            addRecipe.push(recipe)
-            localStorage.setItem('recipes', JSON.stringify(addRecipe))
-        }
-    }else {
+    if (addRecipe === null)addRecipe= []
+    if (addRecipe){
+        addRecipe.push(recipe)
+        localStorage.setItem('recipes', JSON.stringify(addRecipe))
+    }else{
         localStorage.setItem('recipes', JSON.stringify([addRecipe]))
     }
 }
