@@ -1,9 +1,8 @@
 const main = document.querySelector('.main')
 const input = document.querySelectorAll('input')
-const btn = document.querySelector('button')
+const btn = document.querySelectorAll('button')
 
 let allRecipes = []
-
 function getFromStorage () {
     allRecipes = JSON.parse(localStorage.getItem('recipes'))
     recipesAll (allRecipes)
@@ -27,7 +26,7 @@ function recipesAll (data){
     })
 }
 function filter (item){
-    btn.onclick = (item) => {
+    btn[0].onclick = (item) => {
         const values = {
             title: input[0].value,
             calories: input[2].value,
@@ -42,6 +41,21 @@ function filter (item){
 
         main.innerHTML = ''
         recipesAll(result)
+
+    }
+    btn[1].onclick = (data) =>{
+        main.innerHTML = ''
+        getFromStorage()
+        resetInputs()
     }
 }
+function resetInputs () {
+    input[0].value = ''
+    input[1].value = ''
+    input[2].value = ''
+}
+
+
+
+
 
