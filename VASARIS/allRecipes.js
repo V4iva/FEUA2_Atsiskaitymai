@@ -24,12 +24,6 @@ function recipesAll (data){
             </div>
         </div>
         `
-        // const ingr = document.querySelector('.ingredients')
-        // item.ingredient.map(item =>{
-        //     ingr.innerHTML +=`
-        //             <div>* ${item}</div>
-        //         `
-        // })
     })
 }
 function filter (){
