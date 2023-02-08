@@ -3,6 +3,7 @@ const input = document.querySelectorAll('input')
 const btn = document.querySelectorAll('button')
 
 let ingredients = []
+let toRecipes = []
 
 btn[0].onclick = () => {
     fetch('https://www.themealdb.com/api/json/v1/1/random.php')
@@ -32,14 +33,14 @@ function recipePreview (data){
     btn[1].onclick = () =>{
         if (input[1].value.length !== 0){
             ingredients.push(input[1].value)
-        }
-        console.log(ingredients)
-        if (ingredients.length >= 3){
-            ingredients.map(item =>{
-                ingredientSection.innerHTML += `
+            if (ingredients.length >= 3){
+                ingredients.map(item =>{
+                    ingredientSection.innerHTML += `
             <div> * ${item}</div>
         `
-            })
+                })
+        }
+
         }
     }
 
@@ -55,7 +56,7 @@ function recipePreview (data){
 
 
     button.onclick = () => {
-        let recipe = {
+        const recipe = {
             id: data.meals[0].idMeal,
             image: data.meals[0].strMealThumb,
             title: input[0].value,
@@ -64,10 +65,9 @@ function recipePreview (data){
             calories: input[3].value,
         }
         if (recipe.title.length !== 0 && recipe.ingredient.length !== 0 && recipe.description.length !== 0 && recipe.calories.length !== 0){
-            let toRecipes = []
             toRecipes.push(recipe)
-            console.log(toRecipes)
             localStorage.setItem('recipes',JSON.stringify(toRecipes))
+            resetInputs()
         } else {
             input[0].style.border = '2px solid red'
             input[1].style.border = '2px solid red'
@@ -76,5 +76,11 @@ function recipePreview (data){
         }
 
     }
+}
+function resetInputs () {
+    input[0].value = ''
+    input[1].value = ''
+    input[2].value = ''
+    input[3].value = ''
 }
 
