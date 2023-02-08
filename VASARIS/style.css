@@ -61,28 +61,50 @@
 .ov-hidden{
     overflow: hidden;
 }
+.b-radius{
+    border-radius: 10px;
+}
 /*************************************/
 
 input{
     height: 50px;
     font-size: 20px;
+    border-radius: 10px;
 }
 button{
     height: 50px;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 1px;
 }
 img{
     width: 30%;
 }
 .box2{
-    height: 100%;
+    height: 500px;
     width: 300px;
+    padding: 5px;
 }
 .box2 img{
     width: 100%;
+    border-radius: 10px;
 }
 a{
     text-decoration: none;
     margin-left: 30px;
     font-weight: bolder;
-    color: grey;
+    color: white;
+}
+body{
+    background-image: url("https://kavosera.lt/wp-content/uploads/2020/01/IMG_3170-Edit-scaled.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.preview{
+    color: white;
+}
+.main{
+    color: white;
 }

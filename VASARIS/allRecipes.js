@@ -11,7 +11,7 @@ getFromStorage()
 function recipesAll (data){
     data.map(item =>{
         main.innerHTML += `
-        <div id="${item.id}" class="box2 border d-flex flex-d-column gap ov-hidden">
+        <div id="${item.id}" class="box2 border b-radius d-flex flex-d-column gap ov-hidden">
             <img src="${item.image}" alt="">
             <div>
                 <h1>Title: ${item.title}</h1>
