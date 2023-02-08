@@ -34,13 +34,12 @@ function recipePreview (data){
         if (input[1].value.length !== 0){
             ingredients.push(input[1].value)
             if (ingredients.length >= 3){
-                ingredients.map(item =>{
+                ingredients.forEach(item =>{
                     ingredientSection.innerHTML += `
-            <div> * ${item}</div>
-        `
+                        <div> * ${item}</div>
+                    `
                 })
-        }
-
+            }
         }
     }
 
@@ -82,5 +81,7 @@ function resetInputs () {
     input[1].value = ''
     input[2].value = ''
     input[3].value = ''
+    ingredients = []
+    preview.innerHTML = ''
 }
 

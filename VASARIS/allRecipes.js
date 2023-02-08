@@ -20,13 +20,13 @@ function getFromStorage () {
                 <h5>Calories: ${item.calories}</h5> 
             </div>
         </div>
-    `
-    const ingr = document.querySelector('.ingredients')
-        item.ingredient.map(item =>{
-            ingr.innerHTML +=`
-                <div>* ${item}</div>
-            `
-        })
+        `
+        const ingr = document.querySelector('.ingredients')
+            item.ingredient.map(item =>{
+                ingr.innerHTML +=`
+                    <div>* ${item}</div>
+                `
+            })
     })
 
     btn.onclick = () =>{
